@@ -1,7 +1,6 @@
 module Day01Pt2 where
 
-import Data.List
-
+day01Pt2 :: IO ()
 day01Pt2 = do
   contents <- readFile "data/day1-input.txt"
   let linesOfFile = lines contents
@@ -17,8 +16,8 @@ day01Pt2 = do
 
 similarityScore :: ([Int], [Int]) -> [Int]
 similarityScore ([], []) = []
-similarityScore ([], y) = []
-similarityScore (x:xs, []) = []
+similarityScore ([], _) = []
+similarityScore (_, []) = []
 similarityScore (x:xs, y) = (x * occurence x y) : similarityScore (xs, y)
 
 occurence :: Int -> [Int] -> Int
@@ -39,7 +38,7 @@ strToTuple :: [String] -> [(String, String)]
 strToTuple = map toTuple
 
 toTuple :: String -> (String, String)
-toTuple a = joinWords $ words a
+toTuple = joinWords . words
 
 joinWords :: [x] -> (x, x)
 joinWords [a, b] = (a, b)

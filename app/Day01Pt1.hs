@@ -2,6 +2,7 @@ module Day01Pt1 where
 
 import Data.List
 
+day01Pt1 :: IO ()
 day01Pt1 = do
   contents <- readFile "data/day1-input.txt"
   let linesOfFile = lines contents
@@ -33,7 +34,7 @@ strToTuple :: [String] -> [(String, String)]
 strToTuple = map toTuple
 
 toTuple :: String -> (String, String)
-toTuple a = joinWords $ words a
+toTuple = joinWords . words
 
 joinWords :: [x] -> (x, x)
 joinWords [a, b] = (a, b)

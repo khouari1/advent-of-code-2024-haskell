@@ -1,8 +1,9 @@
 module Main where
 
+import System.Environment (getArgs)
 import Day01Pt1 (day01Pt1)
 import Day01Pt2 (day01Pt2)
-import System.Environment (getArgs)
+import Day02Pt1 (day02Pt1)
 
 main :: IO ()
 main = do
@@ -10,4 +11,5 @@ main = do
     case args of
         "01P1" : _ -> day01Pt1
         "01P2" : _ -> day01Pt2
+        "02P1" : _ -> day02Pt1
         _ -> error "Invalid arg"

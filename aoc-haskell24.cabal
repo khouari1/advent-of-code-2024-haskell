@@ -27,3 +27,4 @@ executable aoc-haskell24
     other-modules:
         Day01Pt1
         Day01Pt2
+        Day02Pt1
