@@ -20,21 +20,7 @@ countSafe (x:xs) | isSafe x = 1 + countSafe xs
 
 -- check if a line is safe
 isSafe :: [Int] -> Bool
-isSafe x = directionF(direction x) x
-
--- check if a line starts ascending, descending or neither
-direction :: [Int] -> Int
-direction [] = -1
-direction [_] = -1
-direction (x1:x2:_) | x1 > x2 = 1 -- Descending
-                    | x2 > x1 = 0 -- Ascending
-                    | otherwise = -1 -- Same
-
--- get function to check if a line is ascending, descending or neither
-directionF :: Int -> ([Int] -> Bool)
-directionF n | n == 0 = isAsc
-              | n == 1 = isDesc
-              | otherwise = const False
+isSafe x = isAsc x || isDesc x
 
 -- check if numbers are ascending
 isAsc :: [Int] -> Bool
