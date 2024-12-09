@@ -8,6 +8,7 @@ import Day02Pt2 (day02Pt2)
 import Day03Pt1 (day03Pt1)
 import Day03Pt2 (day03Pt2)
 import Day04Pt1 (day04Pt1)
+import Day04Pt2 (day04Pt2)
 
 main :: IO ()
 main = do
@@ -21,4 +22,5 @@ main = do
         "03P2" : _ -> day03Pt2
         "03P2" : _ -> day03Pt2
         "04P1" : _ -> day04Pt1
+        "04P2" : _ -> day04Pt2
         _ -> error "Invalid arg"
