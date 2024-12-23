@@ -7,9 +7,9 @@ data Direction = U | D | L | R
 day06Pt1 :: IO ()
 day06Pt1 = do
   contents <- readFile "data/day6-input.txt"
-  let allLines = lines contents
-  let startingCoord = findStartingCoordLines allLines 0
-  let areasBeen = move allLines startingCoord U
+  let grid = lines contents
+  let startingCoord = findStartingCoordLines grid 0
+  let areasBeen = move grid startingCoord U
   let numberUniqueAreasBeen = length $ getDistinct areasBeen
   print numberUniqueAreasBeen
 
