@@ -1,4 +1,4 @@
-module Day10Pt1 where
+module Day10 where
 import Data.Char (digitToInt)
 import Data.Maybe (catMaybes)
 import Data.List (nub)
@@ -7,13 +7,16 @@ type Map = [[Int]]
 type Coord = (Int,Int)
 type Row = [Int]
 
-day10Pt1 :: IO ()
-day10Pt1 = do
+day10 :: IO ()
+day10 = do
   contents <- readFile "data/day10-input.txt"
   let inputMap = map (map digitToInt) $ lines contents
   let trailHeadCoords = findTrailHeads inputMap 0
-  let result = sum $ map (length . nub . findRoutes inputMap []) trailHeadCoords
-  print result
+  let foundRoutes = map (findRoutes inputMap []) trailHeadCoords
+  let part1Result = sum $ map (length . nub) foundRoutes
+  let part2Result = sum $ map length foundRoutes
+  print part1Result
+  print part2Result
 
 findTrailHeads :: Map -> Int -> [Coord]
 findTrailHeads [] _ = []
