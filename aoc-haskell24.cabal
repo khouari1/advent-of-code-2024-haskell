@@ -24,6 +24,7 @@ executable aoc-haskell24
     build-depends:    base ^>=4.17.2.1
                     , containers
                     , split
+                    , heaps
     hs-source-dirs:   app
     default-language: Haskell2010
     other-modules:
@@ -44,3 +45,4 @@ executable aoc-haskell24
         Day08Pt1
         Day08Pt2
         Day09Pt1
+        Day09Pt2
