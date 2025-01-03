@@ -45,12 +45,8 @@ getNextTries m beenCoords (x,y) = catMaybes [tryLeft, tryRight, tryUp, tryDown]
     canGoRight = x + 1 < length (head m) && notElem (x+1,y) beenCoords && m !! y !! (x+1) == currentPlusOne
     canGoUp = y - 1 >= 0 && notElem (x,y-1) beenCoords && m !! (y - 1) !! x == currentPlusOne
     canGoDown = y + 1 < length m && notElem (x,y+1) beenCoords && m !! (y + 1) !! x == currentPlusOne
-    tryLeft = maybeTry canGoLeft (x-1,y)
-    tryRight = maybeTry canGoRight (x+1,y)
-    tryUp = maybeTry canGoUp (x,y-1)
-    tryDown = maybeTry canGoDown (x,y+1)
+    tryLeft = if canGoLeft then Just (x-1,y) else Nothing
+    tryRight = if canGoRight then Just (x+1,y) else Nothing
+    tryUp = if canGoUp then Just (x,y-1) else Nothing
+    tryDown = if canGoDown then Just (x,y+1) else Nothing
     currentPlusOne = (m !! y !! x) + 1
-
-maybeTry :: Bool -> Coord -> Maybe Coord
-maybeTry f c | f = Just c
-              | otherwise = Nothing

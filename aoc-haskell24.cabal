@@ -47,3 +47,4 @@ executable aoc-haskell24
         Day09Pt1
         Day09Pt2
         Day10
+        Day11Pt1
